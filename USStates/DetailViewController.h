@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StateData.h"
 
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) StateData* detailItem;
 
+@property (weak, nonatomic) IBOutlet UIImageView *stateMap;
+
+//ipad label, ignore
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

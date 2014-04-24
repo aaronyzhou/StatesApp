@@ -7,17 +7,30 @@
 //
 
 #import "AppDelegate.h"
+#import "MasterViewController.h"
+#import "StateData.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
-    }
+    StateData *AL = [[StateData alloc] initWithName:@"Alabama" Map:[UIImage imageNamed:@"alabama.gif"] Flag:[UIImage imageNamed:@"alabama_flag.png"]];
+    StateData *AK = [[StateData alloc] initWithName:@"Alaska" Map:[UIImage imageNamed:@"alaska.gif"] Flag:[UIImage imageNamed:@"alaska_flag.png"]];
+    StateData *AZ = [[StateData alloc] initWithName:@"Arizona" Map:[UIImage imageNamed:@"arizona.gif"] Flag:[UIImage imageNamed:@"arizona_flag.png"]];
+    StateData *AS = [[StateData alloc] initWithName:@"Arkansas" Map:[UIImage imageNamed:@"arkansas.gif"] Flag:[UIImage imageNamed:@"arkansas_flag.png"]];
+    StateData *CA = [[StateData alloc] initWithName:@"California" Map:[UIImage imageNamed:@"california.gif"] Flag:[UIImage imageNamed:@"california_flag.png"]];
+    StateData *CO = [[StateData alloc] initWithName:@"Colorado" Map:[UIImage imageNamed:@"colorado.gif"] Flag:[UIImage imageNamed:@"colorado_flag.png"]];
+    StateData *CT = [[StateData alloc] initWithName:@"Connecticut" Map:[UIImage imageNamed:@"connecticut.gif"] Flag:[UIImage imageNamed:@"connecticut_flag.png"]];
+    StateData *DE = [[StateData alloc] initWithName:@"Delaware" Map:[UIImage imageNamed:@"delaware.gif"] Flag:[UIImage imageNamed:@"delaware_flag.png"]];
+    StateData *FL = [[StateData alloc] initWithName:@"Florida" Map:[UIImage imageNamed:@"florida.gif"] Flag:[UIImage imageNamed:@"florida_flag.png"]];
+    StateData *GA = [[StateData alloc] initWithName:@"Georgia" Map:[UIImage imageNamed:@"georgia.gif"] Flag:[UIImage imageNamed:@"georgia_flag.png"]];
+    
+    
+    NSMutableArray *states = [NSMutableArray arrayWithObjects:AL,AK,AZ,AS,CA,CO,CT,DE,FL,GA,nil];
+    UINavigationController *navController = (UINavigationController *) self.window.rootViewController;
+    MasterViewController *masterController = [navController.viewControllers objectAtIndex:0];
+    masterController.states = states;
+    
     return YES;
 }
 							
